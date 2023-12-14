@@ -19,6 +19,8 @@
 
 #include <sstream>
 #include <iostream>
+#include <fstream>
+
 #include <boost/serialization/vector.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 
@@ -131,5 +133,12 @@ int main()
       boost::archive::json_iarchive ia(stream);
       ia >> BOOST_SERIALIZATION_NVP(test);
     }
+  }
+
+  {
+    TestA test;
+    std::ofstream ofs("demo.json");
+    boost::archive::json_oarchive oa(ofs);
+    oa << BOOST_SERIALIZATION_NVP(test);
   }
 }
