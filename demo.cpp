@@ -142,3 +142,5 @@ int main()
     oa << BOOST_SERIALIZATION_NVP(test);
   }
 }
+
+BOOST_CLASS_VERSION(TestA, 37)
